@@ -1,2 +1,8 @@
-# my-app
-New repository created via GitHub Copilot
+# GameHub
+
+Главная страница игрового каталога. Поиск работает по демонстрационной подборке на странице.
+
+```sh
+npm ci
+npm run dev
+```
