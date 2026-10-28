@@ -1,5 +1,7 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-01',
-  css: ['~/assets/theme.css', '~/assets/home.scss'],
-  app: { head: { htmlAttrs: { lang: 'ru', 'data-theme': 'dark' } } }
+  modules: ['@pinia/nuxt'],
+  css: ['~/assets/theme.css', '~/assets/main.scss'],
+  runtimeConfig: { public: { siteUrl: 'http://localhost:3000' } },
+  app: { head: { htmlAttrs: { lang: 'ru', 'data-theme': 'dark' }, titleTemplate: '%s · GameHub' } }
 })
