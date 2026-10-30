@@ -3,7 +3,7 @@ import type { LibraryItem } from '~/types/content'
 definePageMeta({ key: route => route.path })
 const content = useContentStore()
 const route = useRoute()
-if (!["games"].includes(String(route.params.kind))) throw createError({ statusCode: 404, fatal: true })
+if (!["games","news"].includes(String(route.params.kind))) throw createError({ statusCode: 404, fatal: true })
 const auth = useAuthStore()
 const request = useRequestFetch()
 const { data: entry, error } = await useAsyncData('entry:' + route.path, () => content.detail(String(route.params.kind), String(route.params.slug)))

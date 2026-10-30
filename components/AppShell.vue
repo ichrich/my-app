@@ -2,6 +2,7 @@
 defineProps<{ admin?: boolean }>()
 const links = [
   { to: '/games', label: 'Игры', icon: 'games' as const },
+  { to: '/news', label: 'Новости', icon: 'news' as const },
 ]
 </script>
 <template>

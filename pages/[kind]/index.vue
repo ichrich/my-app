@@ -3,7 +3,7 @@ const content = useContentStore()
 const route = useRoute()
 const labels: Record<string, string> = { games: 'Каталог игр', news: 'Новости', events: 'События' }
 const kind = computed(() => String(route.params.kind))
-if (!["games"].includes(kind.value)) throw createError({ statusCode: 404, fatal: true })
+if (!["games","news"].includes(kind.value)) throw createError({ statusCode: 404, fatal: true })
 useSeoMeta({ title: () => labels[kind.value] })
 const query = computed(() => route.query)
 const { data, status, error, refresh } = await useAsyncData('catalog:' + kind.value, () => content.list(kind.value, query.value), { watch: [kind, query] })
