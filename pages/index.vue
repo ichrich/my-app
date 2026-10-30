@@ -40,4 +40,11 @@ function findGame() {
     </div>
     <p v-else class="muted">В каталоге пока нет игр.</p>
   </section>
+  <section class="section" aria-labelledby="home-sections">
+    <h2 id="home-sections">Новости и события</h2>
+    <div class="home-sections">
+      <NuxtLink class="panel" to="/news"><AppIcon name="news" /> Новости игр</NuxtLink>
+      <NuxtLink class="panel" to="/events"><AppIcon name="calendar" /> Игровые события</NuxtLink>
+    </div>
+  </section>
 </template>
