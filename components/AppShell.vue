@@ -1,5 +1,6 @@
 <script setup lang="ts">
 defineProps<{ admin?: boolean }>()
+const auth = useAuthStore()
 const links = [
   { to: '/games', label: 'Игры', icon: 'games' as const },
   { to: '/news', label: 'Новости', icon: 'news' as const },
@@ -16,6 +17,7 @@ const links = [
           <AppIcon :name="link.icon" /><span>{{ link.label }}</span>
         </NuxtLink>
       </nav>
+      <div class="rail-account"><NuxtLink :to="auth.user ? '/' : '/login'"><AppIcon name="user" /><span>{{ auth.user?.name || 'Войти' }}</span></NuxtLink></div>
     </div></header>
     <div class="app-workspace">
       <main id="main-content" class="shell"><slot /></main>
