@@ -5,6 +5,7 @@ const links = [
   { to: '/games', label: 'Игры', icon: 'games' as const },
   { to: '/news', label: 'Новости', icon: 'news' as const },
   { to: '/events', label: 'События', icon: 'calendar' as const },
+  { to: '/profile', label: 'Библиотека', icon: 'bookmark' as const }
 ]
 </script>
 <template>
@@ -17,7 +18,7 @@ const links = [
           <AppIcon :name="link.icon" /><span>{{ link.label }}</span>
         </NuxtLink>
       </nav>
-      <div class="rail-account"><NuxtLink :to="auth.user ? '/' : '/login'"><AppIcon name="user" /><span>{{ auth.user?.name || 'Войти' }}</span></NuxtLink></div>
+      <div class="rail-account"><NuxtLink :to="auth.user ? '/profile' : '/login'"><AppIcon name="user" /><span>{{ auth.user?.name || 'Войти' }}</span></NuxtLink></div>
     </div></header>
     <div class="app-workspace">
       <main id="main-content" class="shell"><slot /></main>

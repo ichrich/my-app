@@ -46,7 +46,7 @@ async function save(favorite: boolean, status: string) {
     <div class="hero detail"><img v-if="entry.image" :src="entry.image" alt=""><div class="hero-copy">
       <small>{{ entry.data.genre || 'GAMEHUB' }}</small><h1>{{ entry.title }}</h1>
       <p>{{ [entry.data.platforms?.join(' · '), entry.data.release].filter(Boolean).join(' / ') }}</p>
-      <div v-if="isGame && auth.user" class="filters">
+      <div v-if="isGame" class="filters">
         <button class="button" :disabled="busy" :aria-pressed="!!saved?.favorite" @click="save(!saved?.favorite, saved?.status || '')"><AppIcon name="heart" /> {{ saved?.favorite ? 'В избранном' : 'В избранное' }}</button>
         <ChoiceField label="Игровой статус" :disabled="busy" :model-value="saved?.status || ''"
           :options="[['', 'Добавить в библиотеку'], ['wishlist', 'Хочу сыграть'], ['playing', 'Играю'], ['finished', 'Пройдено']]"

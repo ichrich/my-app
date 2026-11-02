@@ -15,7 +15,7 @@ async function submit() {
   try {
     await $fetch('/api/auth/' + (signup.value ? 'register' : 'login'), { method: 'POST', body: { name: signup.value ? name.value : undefined, email: email.value, password: password.value } })
     await auth.load($fetch)
-    await navigateTo('/')
+    await navigateTo('/profile')
   } catch (error) {
     const code = (error as { statusCode?: number }).statusCode
     message.value = code === 409 ? 'Этот адрес уже зарегистрирован.' : code === 401 ? 'Проверьте почту и пароль.' : 'Не удалось продолжить. Проверьте данные и повторите попытку.'
